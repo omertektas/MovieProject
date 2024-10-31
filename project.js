@@ -19,13 +19,14 @@ function addFilm(e){
     const url = urlElement.value;
 
     if(title === "" || director === "" || url === "" ){
-        //errorr
+        ui.displayMessages("Tüm alanları doldurun","danger");
     }
     else{
         // yeni film
         const newMovie = new Movie(title,director,url);
-        ui.addFilmToUI(newFilm);// Arayüze film ekleme
+        ui.addFilmToUI(newMovie);// Arayüze film ekleme
+        ui.displayMessages("Film başarıyla eklendi","success")
     }
-
+    ui.clearInputs(titleElement,directorElement,urlElement);
     e.preventDefault();
 }
