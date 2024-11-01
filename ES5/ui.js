@@ -57,3 +57,11 @@ UI.prototype.deleteFilmFromUI = function(element){
 
     element.parentElement.parentElement.remove();
 }
+
+UI.prototype.clearAllFilmsFromUI = function(){
+    const films = document.querySelector("#films");
+    //films.innerHTML = ``; bu bir yöntem fakat yavaş çalışan bir yöntem
+    while(films.firstElementChild !== null){
+        films.firstElementChild.remove();
+    }
+}

@@ -24,11 +24,18 @@ Storage.prototype.deleteFilmFromStorage = function(filmTitle){ ///errror
     let films = this.getFilmFromStorage();
 
     films.forEach(function(film,index){
+        console.log(film.title);
+        console.log(filmTitle);
         if(film.title === filmTitle){
+            console.log("ok");
             films.splice(index,1);
         }
     });
     console.log(films); 
     localStorage.setItem("films",JSON.stringify(films));
 
+}
+
+Storage.prototype.clearAllFilmsFromStorage = function(){
+    localStorage.removeItem("films");
 }
